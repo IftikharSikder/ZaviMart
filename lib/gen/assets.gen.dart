@@ -31,6 +31,9 @@ class $AssetsImagesGen {
 class $AssetsFontsRobotoGen {
   const $AssetsFontsRobotoGen();
 
+  /// File path: assets/fonts/roboto/Roboto-Black.ttf
+  String get robotoBlack => 'assets/fonts/roboto/Roboto-Black.ttf';
+
   /// File path: assets/fonts/roboto/Roboto-Bold.ttf
   String get robotoBold => 'assets/fonts/roboto/Roboto-Bold.ttf';
 
@@ -45,6 +48,7 @@ class $AssetsFontsRobotoGen {
 
   /// List of all assets
   List<String> get values => [
+    robotoBlack,
     robotoBold,
     robotoLight,
     robotoMedium,
