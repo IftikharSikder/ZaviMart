@@ -8,6 +8,7 @@ class AppConstants {
   //splash
   static const String welcome = "Welcome back!";
   static const String signInMsg = "Sign in to Continue";
+  static const String signIn = "Sign In";
   static const String email = "Email";
   static const String password = "Password";
 

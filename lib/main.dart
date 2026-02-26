@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zavi_bazaar/app/routes/app_router.dart';
+import 'package:zavi_bazaar/features/auth/presentation/bloc/password_visibility/password_visibility_cubit.dart';
 
 import 'app/theme/app_theme.dart';
 import 'gen/assets.gen.dart';
@@ -13,10 +15,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      theme: appTheme,
-      routerConfig: AppRouter.router,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<PasswordVisibilityCubit>(create: (context) => PasswordVisibilityCubit()),
+      ],
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        theme: appTheme,
+        routerConfig: AppRouter.router,
+      ),
     );
   }
 }

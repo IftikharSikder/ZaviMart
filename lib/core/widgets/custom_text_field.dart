@@ -3,26 +3,37 @@ import 'package:zavi_bazaar/core/ui/dimensions.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
+  final bool? isPassword;
+  final bool? isPasswordShouldVisible;
   final Icon? prefix;
-  final bool? isSuffix;
+  final Icon? suffixIcon;
+  final VoidCallback? onSuffixIconTap;
   final String? hintText;
   const CustomTextField({
     super.key,
     required this.controller,
     this.prefix,
-    this.isSuffix,
+    this.isPassword,
     this.hintText,
+    this.suffixIcon,
+    this.onSuffixIconTap,
+    this.isPasswordShouldVisible,
   });
 
   @override
   Widget build(BuildContext context) {
+    final isPasswordField = isPassword != null && isPassword == true;
+    final isPasswordVisible = isPasswordShouldVisible != null && isPasswordShouldVisible == true;
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 35).copyWith(bottom: Dimensions.paddingSizeDefault),
       child: TextFormField(
         controller: controller,
-        obscureText: isSuffix != null && isSuffix == true ? true : false,
+        obscureText: isPasswordField && !isPasswordVisible,
         decoration: InputDecoration(
           prefixIcon: prefix,
+          suffixIcon: onSuffixIconTap != null
+              ? GestureDetector(onTap: onSuffixIconTap, child: suffixIcon)
+              : suffixIcon,
           hintText: hintText,
           hintStyle: TextStyle(color: Theme.of(context).hintColor),
           contentPadding: EdgeInsets.symmetric(vertical: 10),

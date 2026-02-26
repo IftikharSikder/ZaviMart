@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:zavi_bazaar/app/routes/app_router.dart';
 import 'package:zavi_bazaar/app/theme/app_text_styles.dart';
 import 'package:zavi_bazaar/core/constants/app_constants.dart';
 import 'package:zavi_bazaar/core/responsive/responsive_helper.dart';
@@ -27,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     if (mounted) {
       Future.delayed(Duration(seconds: 3), () {
-        if (mounted) context.go('/signIn');
+        if (mounted) context.goNamed(Routes.signIn.name);
       });
     }
 
@@ -43,31 +44,30 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     bool isMobile = ResponsiveHelper.isMobile(context);
+    double width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       body: isMobile
-          ? Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  AnimatedBuilder(
-                    animation: _bounceAnimation,
-                    builder: (context, child) {
-                      return Transform.translate(
-                        offset: Offset(0, _bounceAnimation.value),
-                        child: Center(child: Assets.images.logo.image(width: 70)),
-                      );
-                    },
-                  ),
-                  SizedBox(height: Dimensions.paddingSizeOverLarge),
+          ? Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AnimatedBuilder(
+                  animation: _bounceAnimation,
+                  builder: (context, child) {
+                    return Transform.translate(
+                      offset: Offset(0, _bounceAnimation.value),
+                      child: Center(child: Assets.images.logo.image(width: width * .18)),
+                    );
+                  },
+                ),
+                SizedBox(height: Dimensions.paddingSizeOverLarge),
 
-                  CustomText(
-                    title: AppConstants.appName,
-                    fontSize: 40,
-                    color: Theme.of(context).primaryColor.withValues(alpha: .8),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ],
-              ),
+                CustomText(
+                  title: AppConstants.appName,
+                  fontSize: 40,
+                  color: Theme.of(context).primaryColor.withValues(alpha: .8),
+                  fontWeight: FontWeight.bold,
+                ),
+              ],
             )
           : Center(child: Text(AppConstants.notSupportedMsg, style: AppTextStyles.robotoRegular)),
     );
