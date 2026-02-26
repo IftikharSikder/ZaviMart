@@ -7,5 +7,6 @@ ThemeData appTheme = ThemeData(
   primaryColor: primaryColor,
   fontFamily: AppConstants.fontFamily,
   colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
+  hintColor: Colors.grey,
   useMaterial3: true,
 );

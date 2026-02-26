@@ -1,4 +1,4 @@
-package com.example.zavi_bazaar
+package com.example.zavimart
 
 import io.flutter.embedding.android.FlutterActivity
 
