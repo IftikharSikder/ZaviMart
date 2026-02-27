@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zavi_bazaar/core/constants/app_constants.dart';
 
-Color primaryColor = Color(0xFFfd4a01);
+Color primaryColor = AppConstants.primaryColor;
 
 ThemeData appTheme = ThemeData(
   primaryColor: primaryColor,

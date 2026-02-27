@@ -9,6 +9,7 @@ class CustomTextField extends StatelessWidget {
   final Icon? suffixIcon;
   final VoidCallback? onSuffixIconTap;
   final String? hintText;
+  final String? validationText;
   const CustomTextField({
     super.key,
     required this.controller,
@@ -18,6 +19,7 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.onSuffixIconTap,
     this.isPasswordShouldVisible,
+    this.validationText,
   });
 
   @override
@@ -28,7 +30,14 @@ class CustomTextField extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 35).copyWith(bottom: Dimensions.paddingSizeDefault),
       child: TextFormField(
         controller: controller,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return validationText;
+          }
+          return null;
+        },
         obscureText: isPasswordField && !isPasswordVisible,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
           prefixIcon: prefix,
           suffixIcon: onSuffixIconTap != null

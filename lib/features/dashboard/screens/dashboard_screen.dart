@@ -1,19 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:zavi_bazaar/app/theme/app_text_styles.dart';
-import 'package:zavi_bazaar/core/constants/app_constants.dart';
-import 'package:zavi_bazaar/core/responsive/responsive_helper.dart';
+import 'package:zavi_bazaar/gen/assets.gen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    bool isMobile = ResponsiveHelper.isMobile(context);
     double width = MediaQuery.sizeOf(context).width;
     return Scaffold(
-      body: isMobile
-          ? Center(child: Text("dashboard screen"))
-          : Center(child: Text(AppConstants.notSupportedMsg, style: AppTextStyles.robotoRegular)),
+      body: Center(child: Text("Dashboard")),
+      bottomNavigationBar: BottomNavigationBar(
+        showUnselectedLabels: true,
+        backgroundColor: Colors.blue,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: "Home",
+            backgroundColor: Colors.blue,
+          ),
+          BottomNavigationBarItem(
+            icon: Assets.images.icons.chat.image(color: Colors.white, width: 23),
+            label: "Messages",
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined), label: "Cart"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Account"),
+        ],
+      ),
     );
   }
 }

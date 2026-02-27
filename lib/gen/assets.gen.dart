@@ -21,6 +21,9 @@ class $AssetsFontsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// Directory path: assets/images/icons
+  $AssetsImagesIconsGen get icons => const $AssetsImagesIconsGen();
+
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
@@ -54,6 +57,16 @@ class $AssetsFontsRobotoGen {
     robotoMedium,
     robotoRegular,
   ];
+}
+
+class $AssetsImagesIconsGen {
+  const $AssetsImagesIconsGen();
+
+  /// File path: assets/images/icons/chat.png
+  AssetGenImage get chat => const AssetGenImage('assets/images/icons/chat.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [chat];
 }
 
 class Assets {
