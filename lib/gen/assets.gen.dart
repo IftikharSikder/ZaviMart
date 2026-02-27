@@ -21,6 +21,10 @@ class $AssetsFontsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/discount.png
+  AssetGenImage get discount =>
+      const AssetGenImage('assets/images/discount.png');
+
   /// Directory path: assets/images/icons
   $AssetsImagesIconsGen get icons => const $AssetsImagesIconsGen();
 
@@ -28,7 +32,7 @@ class $AssetsImagesGen {
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [logo];
+  List<AssetGenImage> get values => [discount, logo];
 }
 
 class $AssetsFontsRobotoGen {
@@ -62,11 +66,49 @@ class $AssetsFontsRobotoGen {
 class $AssetsImagesIconsGen {
   const $AssetsImagesIconsGen();
 
-  /// File path: assets/images/icons/chat.png
-  AssetGenImage get chat => const AssetGenImage('assets/images/icons/chat.png');
+  /// File path: assets/images/icons/cart_filled.png
+  AssetGenImage get cartFilled =>
+      const AssetGenImage('assets/images/icons/cart_filled.png');
+
+  /// File path: assets/images/icons/cart_outlined.png
+  AssetGenImage get cartOutlined =>
+      const AssetGenImage('assets/images/icons/cart_outlined.png');
+
+  /// File path: assets/images/icons/home_filled.png
+  AssetGenImage get homeFilled =>
+      const AssetGenImage('assets/images/icons/home_filled.png');
+
+  /// File path: assets/images/icons/home_outlined.png
+  AssetGenImage get homeOutlined =>
+      const AssetGenImage('assets/images/icons/home_outlined.png');
+
+  /// File path: assets/images/icons/message_filled.png
+  AssetGenImage get messageFilled =>
+      const AssetGenImage('assets/images/icons/message_filled.png');
+
+  /// File path: assets/images/icons/message_outlined.png
+  AssetGenImage get messageOutlined =>
+      const AssetGenImage('assets/images/icons/message_outlined.png');
+
+  /// File path: assets/images/icons/profile_filled.png
+  AssetGenImage get profileFilled =>
+      const AssetGenImage('assets/images/icons/profile_filled.png');
+
+  /// File path: assets/images/icons/profile_outlined.png
+  AssetGenImage get profileOutlined =>
+      const AssetGenImage('assets/images/icons/profile_outlined.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [chat];
+  List<AssetGenImage> get values => [
+    cartFilled,
+    cartOutlined,
+    homeFilled,
+    homeOutlined,
+    messageFilled,
+    messageOutlined,
+    profileFilled,
+    profileOutlined,
+  ];
 }
 
 class Assets {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zavi_bazaar/core/constants/app_images.dart';
 import 'package:zavi_bazaar/gen/fonts.gen.dart';
 
 class AppConstants {
@@ -25,6 +26,26 @@ class AppConstants {
   static const String passValidationMsg = "Email your password";
   static const String success = "Successful";
 
+  //navigation item
+  static const String home = "Home";
+  static const String message = "Message";
+  static const String cart = "Cart";
+  static const String account = "Account";
+
   //platform compatibility
   static const String notSupportedMsg = "Sorry! currently this platform not supported";
+
+  static List<String> navItemOutlined = [
+    AppImages.homeOutlined,
+    AppImages.messageOutlined,
+    AppImages.cartOutlined,
+    AppImages.profileOutlined,
+  ];
+
+  static List<String> navItemFilled = [
+    AppImages.homeFilled,
+    AppImages.messageFilled,
+    AppImages.cartFilled,
+    AppImages.profileFilled,
+  ];
 }

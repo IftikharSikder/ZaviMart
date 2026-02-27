@@ -1,31 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:zavi_bazaar/gen/assets.gen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zavi_bazaar/features/auth/presentation/widgets/custom_nav_bar.dart';
+import 'package:zavi_bazaar/features/cart/screens/cart_screen.dart';
+import 'package:zavi_bazaar/features/chat/screens/chat_screen.dart';
+import 'package:zavi_bazaar/features/dashboard/bloc/navigation_bloc.dart';
+import 'package:zavi_bazaar/features/dashboard/bloc/navigation_state.dart';
+import 'package:zavi_bazaar/features/home/screens/home_screen.dart';
+import 'package:zavi_bazaar/features/offer/screens/offer_screen.dart';
+import 'package:zavi_bazaar/features/profile/screens/profile_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
+    List screens = [HomeScreen(), ChatScreen(), OfferScreen(), CartScreen(), ProfileScreen()];
+
     return Scaffold(
-      body: Center(child: Text("Dashboard")),
-      bottomNavigationBar: BottomNavigationBar(
-        showUnselectedLabels: true,
-        backgroundColor: Colors.blue,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: "Home",
-            backgroundColor: Colors.blue,
-          ),
-          BottomNavigationBarItem(
-            icon: Assets.images.icons.chat.image(color: Colors.white, width: 23),
-            label: "Messages",
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined), label: "Cart"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Account"),
-        ],
+      body: BlocBuilder<NavigationBloc, NavigationState>(
+        builder: (context, state) {
+          return screens[state.index ?? 0];
+        },
       ),
+      bottomNavigationBar: CustomNavBar(),
     );
   }
 }
