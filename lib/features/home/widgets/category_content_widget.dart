@@ -28,7 +28,6 @@ class _CategoryContentWidgetState extends State<CategoryContentWidget>
     return RefreshIndicator(
       onRefresh: () async {
         context.read<ProductBloc>().add(FetchProduct());
-        await context.read<ProductBloc>().stream.firstWhere((s) => s is! LoadingState);
         await Future.delayed(const Duration(milliseconds: 800));
       },
       child: CustomScrollView(

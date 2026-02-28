@@ -25,26 +25,29 @@ class ProductCard extends StatelessWidget {
         ],
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
             flex: 6,
             child: Stack(
               children: [
-                ClipRRect(
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(Dimensions.radiusLarge),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, Dimensions.paddingSizeDefault, 10, 0),
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(Dimensions.radiusLarge),
+                    ),
+                    child: product == null
+                        ? Container(color: Colors.grey.shade200)
+                        : Image.network(
+                            product!.image,
+                            width: double.infinity,
+                            fit: BoxFit.contain,
+                            errorBuilder: (context, error, stackTrace) {
+                              return Image.asset(AppImages.placeholderImage);
+                            },
+                          ),
                   ),
-                  child: product == null
-                      ? Container(color: Colors.grey.shade200)
-                      : Image.network(
-                          product!.image,
-                          width: double.infinity,
-                          fit: BoxFit.contain,
-                          errorBuilder: (context, error, stackTrace) {
-                            return Image.asset(AppImages.placeholderImage);
-                          },
-                        ),
                 ),
 
                 Positioned(
@@ -110,11 +113,11 @@ class ProductCard extends StatelessWidget {
                 Dimensions.paddingSizeSmall,
                 8,
                 Dimensions.paddingSizeSmall,
-                8,
+                0,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomText(
                     maxLine: 2,

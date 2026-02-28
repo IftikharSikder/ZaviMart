@@ -11,4 +11,5 @@ class AppImages {
   static const String placeholderImage = 'assets/images/placeholder.png';
   static const String cameraSearch = 'assets/images/icons/camera_search.png';
   static const String uploadOutline = 'assets/images/icons/upload_outline.png';
+  static const String personAvatar = 'assets/images/icons/person_avatar.png';
 }
