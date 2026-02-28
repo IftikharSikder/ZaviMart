@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zavi_bazaar/core/constants/app_constants.dart';
+import 'package:zavi_bazaar/core/constants/app_images.dart';
 import 'package:zavi_bazaar/core/ui/dimensions.dart';
 
 class SearchHeader extends StatelessWidget {
@@ -26,7 +27,7 @@ class SearchHeader extends StatelessWidget {
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         isCollapsed: true,
-                        hintText: "Type product name",
+                        hintText: AppConstants.searchKey,
                         hintStyle: TextStyle(
                           fontSize: Dimensions.fontSizeLarge,
                           color: Colors.black.withValues(alpha: .7),
@@ -34,7 +35,7 @@ class SearchHeader extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Icon(Icons.facebook, size: 25),
+                  Image.asset(AppImages.cameraSearch, width: 25),
                   const SizedBox(width: 8),
                   SizedBox(
                     height: 40,
@@ -47,12 +48,17 @@ class SearchHeader extends StatelessWidget {
                           backgroundColor: AppConstants.primaryColor,
                           foregroundColor: Colors.white,
                           elevation: 0,
-                          padding: const EdgeInsets.symmetric(horizontal: 6),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: Dimensions.paddingSizeExtraSmall,
+                          ),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                         ),
-                        child: const Text(
-                          "Search",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
+                        child: Text(
+                          AppConstants.search,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: Dimensions.fontSizeExtraSmall,
+                          ),
                         ),
                       ),
                     ),

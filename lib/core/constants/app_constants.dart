@@ -34,6 +34,7 @@ class AppConstants {
 
   //home
   static const String search = "Search";
+  static const String searchKey = "Type product name";
 
   //platform compatibility
   static const String notSupportedMsg = "Sorry! currently this platform not supported";
@@ -51,4 +52,6 @@ class AppConstants {
     AppImages.cartFilled,
     AppImages.profileFilled,
   ];
+
+  static List<String> categories = ["For You", "New Arrival", "Free Delivery"];
 }

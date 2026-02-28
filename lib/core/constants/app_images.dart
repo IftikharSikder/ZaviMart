@@ -9,4 +9,6 @@ class AppImages {
   static const String profileOutlined = 'assets/images/icons/profile_outlined.png';
   static const String profileFilled = 'assets/images/icons/profile_filled.png';
   static const String bannerPlaceholder = 'assets/images/placeholder.png';
+  static const String cameraSearch = 'assets/images/icons/camera_search.png';
+  static const String uploadOutline = 'assets/images/icons/upload_outline.png';
 }
