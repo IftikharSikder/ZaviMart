@@ -26,11 +26,14 @@ class AppConstants {
   static const String passValidationMsg = "Email your password";
   static const String success = "Successful";
 
-  //navigation item
+  //dashboard
   static const String home = "Home";
   static const String message = "Message";
   static const String cart = "Cart";
   static const String account = "Account";
+
+  //home
+  static const String search = "Search";
 
   //platform compatibility
   static const String notSupportedMsg = "Sorry! currently this platform not supported";

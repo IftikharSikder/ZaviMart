@@ -6,7 +6,7 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationState> {
   NavigationBloc() : super(NavigationState(index: 0)) {
     on<ChangeNavigation>(_changeNavigation);
   }
-  _changeNavigation(ChangeNavigation event, Emitter<NavigationState> emit) {
+  void _changeNavigation(ChangeNavigation event, Emitter<NavigationState> emit) {
     emit(state.copyWith(index: event.index));
   }
 }

@@ -6,6 +6,7 @@ import 'package:zavi_bazaar/app/routes/app_router.dart';
 import 'package:zavi_bazaar/features/auth/presentation/bloc/password_visibility/password_visibility_cubit.dart';
 import 'package:zavi_bazaar/features/auth/presentation/bloc/sign_in/sign_in_bloc.dart';
 import 'package:zavi_bazaar/features/dashboard/bloc/navigation_bloc.dart';
+import 'package:zavi_bazaar/features/home/bloc/promotional_banner/promotional_banner_bloc.dart';
 
 import 'app/theme/app_theme.dart';
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         BlocProvider.value(value: di<PasswordVisibilityCubit>()),
         BlocProvider.value(value: di<SignInBloc>()),
         BlocProvider.value(value: di<NavigationBloc>()),
+        BlocProvider.value(value: di<PromotionalBannerBloc>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

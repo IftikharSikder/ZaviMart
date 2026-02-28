@@ -120,13 +120,10 @@ class _SignInScreenState extends State<SignInScreen> with SingleTickerProviderSt
                       BlocConsumer<SignInBloc, SignInState>(
                         listener: (context, state) {
                           if (state is SuccessState) {
-                            customSnackbar(
-                              msg: ApiErrorHandler.getMessage(state.statusCode),
-                              color: Colors.green,
-                            );
+                            customSnackbar(msg: ApiErrorHandler.getMessage(state.statusCode));
                             context.goNamed(Routes.dashboard.name);
                           } else if (state is ErrorState) {
-                            customSnackbar(msg: state.errorMsg.toString(), color: Colors.red);
+                            customSnackbar(msg: state.errorMsg.toString(), isError: true);
                           }
                         },
                         builder: (context, state) {
