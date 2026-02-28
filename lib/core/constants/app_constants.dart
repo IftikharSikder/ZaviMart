@@ -15,6 +15,7 @@ class AppConstants {
 
   //api endpoints
   static const String login = "/auth/login";
+  static const String products = "/products";
 
   //signIn
   static const String welcome = "Welcome back!";
@@ -53,5 +54,11 @@ class AppConstants {
     AppImages.profileFilled,
   ];
 
-  static List<String> categories = ["For You", "New Arrival", "Free Delivery"];
+  // static List<String> categories = ["For You", "New Arrival", "Free Delivery"];
+  static const List<String> categories = [
+    "jewelery",
+    "electronics",
+    "men's clothing",
+    "women's clothing",
+  ];
 }

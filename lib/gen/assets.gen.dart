@@ -31,8 +31,21 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
+  /// File path: assets/images/placeholder.png
+  AssetGenImage get placeholder =>
+      const AssetGenImage('assets/images/placeholder.png');
+
+  /// File path: assets/images/promotional_banner.png
+  AssetGenImage get promotionalBanner =>
+      const AssetGenImage('assets/images/promotional_banner.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [discount, logo];
+  List<AssetGenImage> get values => [
+    discount,
+    logo,
+    placeholder,
+    promotionalBanner,
+  ];
 }
 
 class $AssetsFontsRobotoGen {
@@ -66,6 +79,10 @@ class $AssetsFontsRobotoGen {
 class $AssetsImagesIconsGen {
   const $AssetsImagesIconsGen();
 
+  /// File path: assets/images/icons/camera_search.png
+  AssetGenImage get cameraSearch =>
+      const AssetGenImage('assets/images/icons/camera_search.png');
+
   /// File path: assets/images/icons/cart_filled.png
   AssetGenImage get cartFilled =>
       const AssetGenImage('assets/images/icons/cart_filled.png');
@@ -98,8 +115,13 @@ class $AssetsImagesIconsGen {
   AssetGenImage get profileOutlined =>
       const AssetGenImage('assets/images/icons/profile_outlined.png');
 
+  /// File path: assets/images/icons/upload_outline.png
+  AssetGenImage get uploadOutline =>
+      const AssetGenImage('assets/images/icons/upload_outline.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
+    cameraSearch,
     cartFilled,
     cartOutlined,
     homeFilled,
@@ -108,6 +130,7 @@ class $AssetsImagesIconsGen {
     messageOutlined,
     profileFilled,
     profileOutlined,
+    uploadOutline,
   ];
 }
 

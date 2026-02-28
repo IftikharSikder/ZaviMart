@@ -39,8 +39,10 @@ class HeaderWidgets extends StatelessWidget {
                   child: AspectRatio(
                     aspectRatio: 16 / 6,
                     child: Image.asset(
-                      isLoading ? AppImages.bannerPlaceholder : state.imgPath.toString(),
+                      isLoading ? AppImages.placeholderImage : state.imgPath.toString(),
                       fit: BoxFit.fill,
+                      errorBuilder: (context, error, stackTrace) =>
+                          Image.asset(AppImages.placeholderImage),
                     ),
                   ),
                 );

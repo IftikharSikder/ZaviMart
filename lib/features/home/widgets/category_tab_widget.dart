@@ -1,27 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:zavi_bazaar/core/constants/app_constants.dart';
+import 'package:zavi_bazaar/core/ui/dimensions.dart';
 
-class CategoryTabWidget extends StatefulWidget {
-  const CategoryTabWidget({super.key});
-
-  @override
-  State<CategoryTabWidget> createState() => _CategoryTabWidgetState();
-}
-
-class _CategoryTabWidgetState extends State<CategoryTabWidget> with SingleTickerProviderStateMixin {
-  late TabController _tabController;
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 3, vsync: this);
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
+class CategoryTabWidget extends StatelessWidget {
+  final TabController tabController;
+  const CategoryTabWidget({super.key, required this.tabController});
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +12,31 @@ class _CategoryTabWidgetState extends State<CategoryTabWidget> with SingleTicker
       pinned: true,
       delegate: _TabBarHeaderDelegate(
         TabBar(
-          controller: _tabController,
+          controller: tabController,
           isScrollable: true,
-          tabs: List.generate(AppConstants.categories.length, (tab) {
-            return Tab(text: AppConstants.categories[tab]);
-          }),
+          tabAlignment: TabAlignment.start,
+          indicator: UnderlineTabIndicator(
+            borderSide: BorderSide(
+              color: Theme.of(context).primaryColor.withValues(alpha: .8),
+              width: 3,
+            ),
+            insets: EdgeInsets.symmetric(horizontal: 8),
+          ),
+          indicatorSize: TabBarIndicatorSize.tab,
+          dividerColor: Colors.grey.shade200,
+          labelColor: Theme.of(context).primaryColor.withValues(alpha: .8),
+          unselectedLabelColor: Colors.grey.shade500,
+          labelStyle: TextStyle(fontWeight: FontWeight.w700, fontSize: Dimensions.fontSizeDefault),
+          unselectedLabelStyle: TextStyle(
+            fontWeight: FontWeight.w400,
+            fontSize: Dimensions.fontSizeDefault,
+          ),
+          splashFactory: NoSplash.splashFactory,
+          overlayColor: WidgetStateProperty.all(Colors.transparent),
+          tabs: List.generate(
+            AppConstants.categories.length,
+            (tab) => Tab(text: AppConstants.categories[tab]),
+          ),
         ),
       ),
     );
