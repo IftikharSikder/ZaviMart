@@ -5,6 +5,7 @@ import 'package:zavi_bazaar/features/auth/presentation/bloc/sign_in/sign_in_bloc
 import 'package:zavi_bazaar/features/dashboard/bloc/navigation_bloc.dart';
 import 'package:zavi_bazaar/features/home/bloc/product/product_bloc.dart';
 import 'package:zavi_bazaar/features/home/bloc/promotional_banner/promotional_banner_bloc.dart';
+import 'package:zavi_bazaar/features/profile/presentation/data/bloc/profile_bloc.dart';
 
 Future<void> init() async {
   final di = GetIt.instance;
@@ -15,4 +16,5 @@ Future<void> init() async {
   di.registerLazySingleton<NavigationBloc>(() => NavigationBloc());
   di.registerLazySingleton<PromotionalBannerBloc>(() => PromotionalBannerBloc());
   di.registerLazySingleton<ProductBloc>(() => ProductBloc(apiClient: di<ApiClient>()));
+  di.registerLazySingleton<ProfileBloc>(() => ProfileBloc());
 }

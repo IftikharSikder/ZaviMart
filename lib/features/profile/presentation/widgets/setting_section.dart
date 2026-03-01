@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:zavi_bazaar/core/ui/dimensions.dart';
+import 'package:zavi_bazaar/features/profile/presentation/data/model/profile_model.dart';
 
 class SettingsSection extends StatelessWidget {
-  final List<SettingsItem> items;
+  final List<SettingsItemModel> items;
 
   const SettingsSection({super.key, required this.items});
 
@@ -15,7 +16,15 @@ class SettingsSection extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
       ),
-      child: Column(children: items),
+      child: ListView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          final item = items[index];
+          return SettingsItem(label: item.label, value: item.value);
+        },
+      ),
     );
   }
 }
@@ -42,7 +51,6 @@ class SettingsItem extends StatelessWidget {
             ),
             child: Row(
               children: [
-                // Label
                 Expanded(
                   child: Text(
                     label,
@@ -50,17 +58,20 @@ class SettingsItem extends StatelessWidget {
                   ),
                 ),
 
-                // Value
-                if (value != null) ...[
-                  Text(
-                    value!,
-                    style: TextStyle(
-                      fontSize: Dimensions.fontSizeDefault,
-                      color: Colors.grey.shade400,
-                    ),
-                  ),
-                  const SizedBox(width: Dimensions.paddingSizeExtraSmall),
-                ],
+                value != null
+                    ? Column(
+                        children: [
+                          Text(
+                            value!,
+                            style: TextStyle(
+                              fontSize: Dimensions.fontSizeDefault,
+                              color: Colors.grey.shade400,
+                            ),
+                          ),
+                          const SizedBox(width: Dimensions.paddingSizeExtraSmall),
+                        ],
+                      )
+                    : SizedBox(),
 
                 // Chevron
                 Icon(CupertinoIcons.chevron_right, size: 16, color: Colors.grey.shade400),

@@ -1,0 +1,57 @@
+{
+  "profile": {
+    "name": "Iftikhar Ahammad",
+    "wishlist": 0,
+    "followedStores": 0,
+    "vouchers": 2
+  },
+  "sections": [
+    {
+      "title": "Account Information",
+      "items": [
+        {
+          "label": "Full Name",
+          "value": "Iftikhar Ahammad"
+        },
+        {
+          "label": "Set Password",
+          "value": null
+        },
+        {
+          "label": "Add Mobile",
+          "value": "Not Set"
+        },
+        {
+          "label": "Change Email",
+          "value": "if*****@gmail.com"
+        },
+        {
+          "label": "Gender",
+          "value": "Not Set"
+        },
+        {
+          "label": "Birthday",
+          "value": "Not Set",
+          "isLast": true
+        }
+      ]
+    },
+    {
+      "title": "More",
+      "items": [
+        {
+          "label": "Notification Settings",
+          "value": null
+        },
+        {
+          "label": "Privacy Policy",
+          "value": null
+        },
+        {
+          "label": "Terms & Conditions",
+          "value": null
+        }
+      ]
+    }
+  ]
+}

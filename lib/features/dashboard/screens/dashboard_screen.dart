@@ -7,11 +7,16 @@ import 'package:zavi_bazaar/features/dashboard/bloc/navigation_bloc.dart';
 import 'package:zavi_bazaar/features/dashboard/bloc/navigation_state.dart';
 import 'package:zavi_bazaar/features/home/screens/home_screen.dart';
 import 'package:zavi_bazaar/features/offer/screens/offer_screen.dart';
-import 'package:zavi_bazaar/features/profile/screens/profile_screen.dart';
+import 'package:zavi_bazaar/features/profile/presentation/screens/profile_screen.dart';
 
-class DashboardScreen extends StatelessWidget {
+class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
 
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     List screens = [HomeScreen(), ChatScreen(), OfferScreen(), CartScreen(), ProfileScreen()];

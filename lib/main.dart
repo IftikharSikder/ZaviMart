@@ -11,6 +11,7 @@ import 'package:zavi_bazaar/features/home/bloc/promotional_banner/promotional_ba
 
 import 'app/theme/app_theme.dart';
 import 'features/home/bloc/product/product_bloc.dart';
+import 'features/profile/presentation/data/bloc/profile_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         BlocProvider.value(value: di<NavigationBloc>()),
         BlocProvider.value(value: di<PromotionalBannerBloc>()),
         BlocProvider.value(value: di<ProductBloc>()),
+        BlocProvider.value(value: di<ProfileBloc>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
